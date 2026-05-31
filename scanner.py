@@ -46,7 +46,8 @@ def generate_report(target_url):
     report.append(f"Target URL     : {target_url}")
     report.append(f"Scan Date      : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     report.append(f"Scanner Version: 1.0")
-    report.append("=" * 70 + "\n")
+    report.append("=" * 70)
+    report.append("")
 
     try:
         headers = {"User-Agent": "Web-Security-Scanner/1.0"}
@@ -61,10 +62,11 @@ def generate_report(target_url):
             report.extend(header_findings)
         else:
             report.append("✅ All recommended security headers are present.")
+        report.append("")
 
         # Forms
         forms = extract_forms(target_url)
-        report.append("\nFORM DISCOVERY")
+        report.append("FORM DISCOVERY")
         report.append("-" * 50)
         report.append(f"Forms Found    : {len(forms)}")
 
@@ -73,21 +75,25 @@ def generate_report(target_url):
                 action = form.get("action") or "Relative (same page)"
                 method = form.get("method", "GET").upper()
                 inputs = len(form.find_all(["input", "textarea", "select", "button"]))
-                report.append(f"\nForm #{i}")
+                report.append("")
+                report.append(f"Form #{i}")
                 report.append(f"   Method : {method}")
                 report.append(f"   Action : {action}")
                 report.append(f"   Inputs : {inputs}")
         else:
-            report.append("\n   No forms were detected on this page.")
+            report.append("")
+            report.append("   No forms were detected on this page.")
 
-        # Final clean ending
-        report.append("\n" + "=" * 70)
+        report.append("")
+        report.append("=" * 70)
         report.append("End of Report")
         report.append("=" * 70)
+        report.append("")
 
-        # Save with extra newline to prevent prompt sticking
+        # Write file with guaranteed newlines
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            f.write("\n".join(report) + "\n\n")
+            for line in report:
+                f.write(line + "\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
