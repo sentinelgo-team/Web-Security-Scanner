@@ -73,22 +73,21 @@ def generate_report(target_url):
                 action = form.get("action") or "Relative (same page)"
                 method = form.get("method", "GET").upper()
                 inputs = len(form.find_all(["input", "textarea", "select", "button"]))
-                report.append("")
-                report.append(f"Form #{i}")
+                report.append(f"\nForm #{i}")
                 report.append(f"   Method : {method}")
                 report.append(f"   Action : {action}")
                 report.append(f"   Inputs : {inputs}")
         else:
             report.append("\n   No forms were detected on this page.")
 
-        report.append("")
-        report.append("=" * 70)
+        # Final clean ending
+        report.append("\n" + "=" * 70)
         report.append("End of Report")
         report.append("=" * 70)
 
-        # Save with final newline
+        # Save with extra newline to prevent prompt sticking
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            f.write("\n".join(report) + "\n")
+            f.write("\n".join(report) + "\n\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
