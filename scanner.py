@@ -34,7 +34,7 @@ def extract_forms(url):
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         return soup.find_all("form")
-    except Exception:
+    except:
         return []
 
 def generate_report(target_url):
@@ -58,8 +58,7 @@ def generate_report(target_url):
         report.append("SECURITY HEADERS ANALYSIS")
         report.append("-" * 50)
         if header_findings:
-            for item in header_findings:
-                report.append(item)
+            report.extend(header_findings)
         else:
             report.append("✅ All recommended security headers are present.")
 
@@ -73,17 +72,23 @@ def generate_report(target_url):
             for i, form in enumerate(forms, 1):
                 action = form.get("action") or "Relative (same page)"
                 method = form.get("method", "GET").upper()
-                inputs = len(form.find_all(['input', 'textarea', 'select', 'button']))
-                report.append(f"\nForm #{i}")
+                inputs = len(form.find_all(["input", "textarea", "select", "button"]))
+                report.append("")
+                report.append(f"Form #{i}")
                 report.append(f"   Method : {method}")
                 report.append(f"   Action : {action}")
                 report.append(f"   Inputs : {inputs}")
         else:
-            report.append("   No forms were detected on this page.")
+            report.append("\n   No forms were detected on this page.")
 
-        # Write to file
+        report.append("")
+        report.append("=" * 70)
+        report.append("End of Report")
+        report.append("=" * 70)
+
+        # Save with final newline
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            f.write("\n".join(report))
+            f.write("\n".join(report) + "\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
