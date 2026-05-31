@@ -89,11 +89,11 @@ def generate_report(target_url):
         report.append("End of Report")
         report.append("=" * 70)
         report.append("")
+        report.append("")   # Extra newlines to prevent prompt sticking
 
-        # Write file with guaranteed newlines
+        # Write file safely
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            for line in report:
-                f.write(line + "\n")
+            f.write("\n".join(report) + "\n\n\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
