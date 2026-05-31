@@ -1,18 +1,14 @@
 =================================================================
               WEB SECURITY SCANNER REPORT
 =================================================================
-Target URL     : https://example.com
-Scan Date      : 2026-05-31 18:10:00
+Target URL     : https://claude.ai/chat/0d605a6d-a7f7-4fd1-961a-0f625a87d136
+Scan Date      : 2026-05-31 18:13:45
 Scanner Version: 1.0
 =================================================================
 
 SECURITY HEADERS ANALYSIS
 ---------------------------------------------
-❌ Missing Security Header: Content-Security-Policy
 ❌ Missing Security Header: X-Frame-Options
-❌ Missing Security Header: Strict-Transport-Security
-❌ Missing Security Header: Referrer-Policy
-❌ Missing Security Header: Permissions-Policy
 
 FORM DISCOVERY
 ---------------------------------------------
