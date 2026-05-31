@@ -1,15 +1,24 @@
 =================================================================
               WEB SECURITY SCANNER REPORT
 =================================================================
-Target URL     : https://claude.ai/chat/0d605a6d-a7f7-4fd1-961a-0f625a87d136
-Scan Date      : 2026-05-31 18:13:45
+Target URL     : https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit
+Scan Date      : 2026-05-31 18:46:22
 Scanner Version: 1.0
 =================================================================
 
 SECURITY HEADERS ANALYSIS
 ---------------------------------------------
 ❌ Missing Security Header: X-Frame-Options
+❌ Missing Security Header: Strict-Transport-Security
+❌ Missing Security Header: X-Content-Type-Options
+❌ Missing Security Header: Referrer-Policy
+❌ Missing Security Header: Permissions-Policy
 
 FORM DISCOVERY
 ---------------------------------------------
-Forms Found    : 0
+Forms Found    : 1
+
+Form #1
+   Method : GET
+   Action : No action attribute
+   Inputs : 1
