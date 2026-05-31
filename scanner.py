@@ -33,10 +33,8 @@ def extract_forms(url):
         response = requests.get(url, headers=headers, timeout=15)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-        forms = soup.find_all("form")
-        return forms
-    except Exception as e:
-        print(f"   Note: Could not extract forms ({e})")
+        return soup.find_all("form")
+    except Exception:
         return []
 
 def generate_report(target_url):
@@ -60,11 +58,12 @@ def generate_report(target_url):
         report.append("SECURITY HEADERS ANALYSIS")
         report.append("-" * 50)
         if header_findings:
-            report.extend(header_findings)
+            for item in header_findings:
+                report.append(item)
         else:
             report.append("✅ All recommended security headers are present.")
 
-        # Form Discovery
+        # Forms
         forms = extract_forms(target_url)
         report.append("\nFORM DISCOVERY")
         report.append("-" * 50)
@@ -80,9 +79,9 @@ def generate_report(target_url):
                 report.append(f"   Action : {action}")
                 report.append(f"   Inputs : {inputs}")
         else:
-            report.append("   No forms detected on this page.")
+            report.append("   No forms were detected on this page.")
 
-        # Final Save
+        # Write to file
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
             f.write("\n".join(report))
 
