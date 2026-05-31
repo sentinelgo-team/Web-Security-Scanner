@@ -7,12 +7,8 @@ from datetime import datetime
 REPORT_FILE = "report.txt"
 
 SECURITY_HEADERS = [
-    "Content-Security-Policy",
-    "X-Frame-Options",
-    "Strict-Transport-Security",
-    "X-Content-Type-Options",
-    "Referrer-Policy",
-    "Permissions-Policy"
+    "Content-Security-Policy", "X-Frame-Options", "Strict-Transport-Security",
+    "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy"
 ]
 
 def is_valid_url(url):
@@ -54,7 +50,7 @@ def generate_report(target_url):
         response = requests.get(target_url, headers=headers, timeout=15)
         response.raise_for_status()
 
-        # Security Headers
+        # Headers
         header_findings = check_security_headers(response)
         report.append("SECURITY HEADERS ANALYSIS")
         report.append("-" * 50)
@@ -81,22 +77,26 @@ def generate_report(target_url):
                 report.append(f"   Action : {action}")
                 report.append(f"   Inputs : {inputs}")
         else:
-            report.append("")
-            report.append("   No forms were detected on this page.")
+            report.append("\n   No forms were detected on this page.")
 
         report.append("")
         report.append("=" * 70)
         report.append("End of Report")
         report.append("=" * 70)
-        report.append("")
-        report.append("")   # Extra newlines to prevent prompt sticking
 
-        # Write file safely
+        # Save file
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            f.write("\n".join(report) + "\n\n\n")
+            f.write("\n".join(report) + "\n\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
+
+        # === PRINT FULL CLEAN REPORT ===
+        print("\n" + "="*70)
+        print("FULL REPORT CONTENT:")
+        print("="*70)
+        print("\n".join(report))
+        print("="*70)
 
     except Exception as e:
         print(f"❌ Error during scan: {e}")
@@ -108,7 +108,6 @@ def main():
     print("=" * 70)
 
     target = input("\nEnter target URL: ").strip()
-    
     if not target.startswith(("http://", "https://")):
         target = "https://" + target
 
