@@ -50,7 +50,6 @@ def generate_report(target_url):
         response = requests.get(target_url, headers=headers, timeout=15)
         response.raise_for_status()
 
-        # Headers
         header_findings = check_security_headers(response)
         report.append("SECURITY HEADERS ANALYSIS")
         report.append("-" * 50)
@@ -60,7 +59,6 @@ def generate_report(target_url):
             report.append("✅ All recommended security headers are present.")
         report.append("")
 
-        # Forms
         forms = extract_forms(target_url)
         report.append("FORM DISCOVERY")
         report.append("-" * 50)
@@ -83,23 +81,23 @@ def generate_report(target_url):
         report.append("=" * 70)
         report.append("End of Report")
         report.append("=" * 70)
+        report.append("\n")
 
-        # Save file
+        # Final save with multiple newlines
         with open(REPORT_FILE, "w", encoding="utf-8") as f:
-            f.write("\n".join(report) + "\n\n")
+            f.write("\n".join(report) + "\n\n\n")
 
         print("\n✅ Report generated successfully!")
         print(f"📄 Report saved as: {REPORT_FILE}")
 
-        # === PRINT FULL CLEAN REPORT ===
+        # Show clean report in terminal
         print("\n" + "="*70)
-        print("FULL REPORT CONTENT:")
+        print("FULL CLEAN REPORT:")
         print("="*70)
         print("\n".join(report))
-        print("="*70)
 
     except Exception as e:
-        print(f"❌ Error during scan: {e}")
+        print(f"❌ Error: {e}")
 
 def main():
     print("=" * 70)
