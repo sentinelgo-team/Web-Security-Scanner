@@ -1,39 +1,127 @@
-# Web Security Scanner
+# ��� Web Security Scanner
 
-A lightweight Python-based tool that performs basic web security analysis by checking security headers and discovering forms.
+A lightweight Python-based tool for basic web security analysis that checks security headers and discovers HTML forms.
 
-## Features
+## �� Features
 
-- Security headers analysis (CSP, HSTS, X-Frame-Options, etc.)
-- Form discovery with method, action, and input count
-- Professional report generation (`report.txt`)
-- Custom User-Agent header for better compatibility
-- Clean error handling and URL validation
-- Non-intrusive / passive scanning
+- ��� **Security Headers Analysis**: Checks for CSP, X-Frame-Options, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- ��� **Form Discovery**: Finds and analyzes HTML forms (method, action, input count)
+- ��� **Professional Reporting**: Generates detailed reports with timestamps
+- ������ **Passive Scanning**: Non-intrusive, educational use only
+- ��� **Custom User-Agent**: Uses "Web-Security-Scanner/1.0" for better compatibility
+- ��� **Fast & Reliable**: Timeout handling and error recovery
 
-## Technologies
+## ��� Installation
 
-- Python 3
-- Requests
-- BeautifulSoup4
+```bash
+# Clone the repository
+git clone https://github.com/sentinelgo-team/Web-Security-Scanner.git
+cd Web-Security-Scanner
 
-## Installation
+# Install dependencies
+pip install -r requirements.txt
+```
 
+## ��� Usage
+
+```bash
+# Run the scanner
+python scanner.py
+
+# Follow the prompt:
+# Enter target URL (e.g., https://example.com): https://httpbin.org
+```
+
+### Example Workflow
+```
+======================================================================
+                  WEB SECURITY SCANNER
+           Basic Security Assessment Tool
+======================================================================
+
+Enter target URL (e.g., https://example.com): https://httpbin.org
+
+���� Scanning https://httpbin.org ...
+
+��� Report generated successfully!
+���� Report saved as: report.txt
+
+======================================================================
+              WEB SECURITY SCANNER REPORT
+======================================================================
+Target URL     : https://httpbin.org
+Scan Date      : 2026-08-14 09:27:42
+Scanner Version: 1.0
+======================================================================
+
+SECURITY HEADERS ANALYSIS
+--------------------------------------------------
+��� Missing Security Header: Content-Security-Policy
+��� Missing Security Header: X-Frame-Options
+��� Missing Security Header: Strict-Transport-Security
+��� Missing Security Header: X-Content-Type-Options
+��� Missing Security Header: Referrer-Policy
+��� Missing Security Header: Permissions-Policy
+
+FORM DISCOVERY
+--------------------------------------------------
+Forms Found    : 0
+
+No forms were detected on this page.
+
+======================================================================
+END OF REPORT
+======================================================================
+```
+
+## ��� Requirements
+
+- Python 3.x
+- requests
+- beautifulsoup4
+
+Install via:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
+## ������ Important Notes
 
-```bash
-python scanner.py
+- **Educational Use Only**: This tool is for learning and demonstration purposes
+- **Get Permission**: Always obtain authorization before scanning websites you don't own
+- **Passive Scanning**: Performs only header analysis and form discovery (no exploitation)
+- **Respect Rate Limits**: Be considerate when scanning websites
+
+## ��� Project Structure
+
+```
+Web-Security-Scanner/
+├── scanner.py          # Main scanner application
+├── requirements.txt    # Python dependencies
+├── README.md           # This file
+├── report.txt          # Generated security reports
+��── .git/               # Version control
 ```
 
-## Important Notes
+## ������ How It Works
 
-- This tool is for **educational and demonstration purposes only**.
-- It performs only passive scanning (no exploitation or aggressive testing).
-- Always obtain permission before scanning websites you do not own.
+1. **URL Validation**: Checks if input is a valid HTTP/HTTPS URL
+2. **Header Analysis**: Fetches target URL and examines security headers
+3. **Form Detection**: Parses HTML to find and analyze forms
+4. **Report Generation**: Creates formatted report with findings
+5. **Output**: Saves to `report.txt` and optionally displays in terminal
 
-## GitHub Description
-Python-based web security scanner for security header analysis, form discovery, and automated report generation.
+## ��� Customization
+
+Adjust these constants in `scanner.py`:
+- `REPORT_FILE`: Output filename (default: "report.txt")
+- `SECURITY_HEADERS`: List of headers to check
+- Timeouts: Modify request timeout values (currently 30 seconds)
+
+## ��� Support
+
+For issues or questions, please open an issue in the GitHub repository.
+
+---
+
+**Happy Scanning!** ���
