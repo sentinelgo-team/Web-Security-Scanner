@@ -2,18 +2,18 @@
               WEB SECURITY SCANNER REPORT
 ======================================================================
 Target URL     : https://httpbin.org
-Scan Date      : 2026-08-14 09:27:42
+Scan Date      : 2026-08-14 09:40:14
 Scanner Version: 1.0
 ======================================================================
 
 SECURITY HEADERS ANALYSIS
 --------------------------------------------------
-❌ Missing Security Header: Content-Security-Policy
-❌ Missing Security Header: X-Frame-Options
-❌ Missing Security Header: Strict-Transport-Security
-❌ Missing Security Header: X-Content-Type-Options
-❌ Missing Security Header: Referrer-Policy
-❌ Missing Security Header: Permissions-Policy
+Missing Security Header: Content-Security-Policy
+Missing Security Header: X-Frame-Options
+Missing Security Header: Strict-Transport-Security
+Missing Security Header: X-Content-Type-Options
+Missing Security Header: Referrer-Policy
+Missing Security Header: Permissions-Policy
 
 FORM DISCOVERY
 --------------------------------------------------

@@ -1,17 +1,17 @@
-# ��� Web Security Scanner
+# Web Security Scanner
 
 A lightweight Python-based tool for basic web security analysis that checks security headers and discovers HTML forms.
 
-## �� Features
+## Features
 
-- ��� **Security Headers Analysis**: Checks for CSP, X-Frame-Options, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
-- ��� **Form Discovery**: Finds and analyzes HTML forms (method, action, input count)
-- ��� **Professional Reporting**: Generates detailed reports with timestamps
-- ������ **Passive Scanning**: Non-intrusive, educational use only
-- ��� **Custom User-Agent**: Uses "Web-Security-Scanner/1.0" for better compatibility
-- ��� **Fast & Reliable**: Timeout handling and error recovery
+- **Security Headers Analysis**: Checks for CSP, X-Frame-Options, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- **Form Discovery**: Finds and analyzes HTML forms (method, action, input count)
+- **Professional Reporting**: Generates detailed reports with timestamps
+- **Passive Scanning**: Non-intrusive, educational use only
+- **Custom User-Agent**: Uses "Web-Security-Scanner/1.0" for better compatibility
+- **Fast & Reliable**: Timeout handling and error recovery
 
-## ��� Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -22,7 +22,7 @@ cd Web-Security-Scanner
 pip install -r requirements.txt
 ```
 
-## ��� Usage
+## Usage
 
 ```bash
 # Run the scanner
@@ -41,10 +41,10 @@ python scanner.py
 
 Enter target URL (e.g., https://example.com): https://httpbin.org
 
-���� Scanning https://httpbin.org ...
+Scanning https://httpbin.org ...
 
-��� Report generated successfully!
-���� Report saved as: report.txt
+Report generated successfully!
+Report saved as: report.txt
 
 ======================================================================
               WEB SECURITY SCANNER REPORT
@@ -56,12 +56,12 @@ Scanner Version: 1.0
 
 SECURITY HEADERS ANALYSIS
 --------------------------------------------------
-��� Missing Security Header: Content-Security-Policy
-��� Missing Security Header: X-Frame-Options
-��� Missing Security Header: Strict-Transport-Security
-��� Missing Security Header: X-Content-Type-Options
-��� Missing Security Header: Referrer-Policy
-��� Missing Security Header: Permissions-Policy
+Missing Security Header: Content-Security-Policy
+Missing Security Header: X-Frame-Options
+Missing Security Header: Strict-Transport-Security
+Missing Security Header: X-Content-Type-Options
+Missing Security Header: Referrer-Policy
+Missing Security Header: Permissions-Policy
 
 FORM DISCOVERY
 --------------------------------------------------
@@ -74,7 +74,7 @@ END OF REPORT
 ======================================================================
 ```
 
-## ��� Requirements
+## Requirements
 
 - Python 3.x
 - requests
@@ -85,14 +85,14 @@ Install via:
 pip install -r requirements.txt
 ```
 
-## ������ Important Notes
+## Important Notes
 
 - **Educational Use Only**: This tool is for learning and demonstration purposes
 - **Get Permission**: Always obtain authorization before scanning websites you don't own
 - **Passive Scanning**: Performs only header analysis and form discovery (no exploitation)
 - **Respect Rate Limits**: Be considerate when scanning websites
 
-## ��� Project Structure
+## Project Structure
 
 ```
 Web-Security-Scanner/
@@ -103,7 +103,7 @@ Web-Security-Scanner/
 ��── .git/               # Version control
 ```
 
-## ������ How It Works
+## How It Works
 
 1. **URL Validation**: Checks if input is a valid HTTP/HTTPS URL
 2. **Header Analysis**: Fetches target URL and examines security headers
@@ -111,17 +111,39 @@ Web-Security-Scanner/
 4. **Report Generation**: Creates formatted report with findings
 5. **Output**: Saves to `report.txt` and optionally displays in terminal
 
-## ��� Customization
+## Customization
 
 Adjust these constants in `scanner.py`:
 - `REPORT_FILE`: Output filename (default: "report.txt")
 - `SECURITY_HEADERS`: List of headers to check
 - Timeouts: Modify request timeout values (currently 30 seconds)
 
-## ��� Support
+## Support
 
 For issues or questions, please open an issue in the GitHub repository.
 
 ---
 
-**Happy Scanning!** ���
+**Happy Scanning!**
+
+### About the Symbols (Emojis) Previously Used
+
+In an earlier version of this README, emoji symbols were used to visually highlight sections and improve readability. These symbols were purely decorative and served no functional purpose in the scanner's operation. They have been removed to maintain a clean, professional document suitable for all audiences. The meanings of the symbols were:
+
+- �����: Web Security Scanner (project title)
+- ����: Features section
+- �����: Security Headers Analysis
+- �����: Form Discovery
+- �����: Professional Reporting
+- ��������: Passive Scanning / Educational Use
+- �����: Custom User-Agent
+- �����: Fast & Reliable
+- �����: Installation
+- �����: Usage
+- ��������: Important Notes
+- �����: Project Structure
+- ��������: How It Works
+- �����: Customization
+- �����: Support
+
+These symbols were optional and have been removed per request.
