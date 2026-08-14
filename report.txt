@@ -1,13 +1,14 @@
 =================================================================
               WEB SECURITY SCANNER REPORT
 =================================================================
-Target URL     : https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit
-Scan Date      : 2026-05-31 18:46:22
+Target URL     : https://httpbin.org
+Scan Date      : 2026-08-14 09:26:13
 Scanner Version: 1.0
 =================================================================
 
 SECURITY HEADERS ANALYSIS
 ---------------------------------------------
+❌ Missing Security Header: Content-Security-Policy
 ❌ Missing Security Header: X-Frame-Options
 ❌ Missing Security Header: Strict-Transport-Security
 ❌ Missing Security Header: X-Content-Type-Options
@@ -16,9 +17,4 @@ SECURITY HEADERS ANALYSIS
 
 FORM DISCOVERY
 ---------------------------------------------
-Forms Found    : 1
-
-Form #1
-   Method : GET
-   Action : No action attribute
-   Inputs : 1
+Forms Found    : 0
